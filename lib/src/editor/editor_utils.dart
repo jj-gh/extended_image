@@ -373,6 +373,7 @@ class EditorConfig {
     this.lineColor,
     this.lineHeight = 0.6,
     this.editorMaskColorHandler,
+    this.colorFilter,
     this.hitTestSize = 20.0,
     this.animationDuration = const Duration(milliseconds: 200),
     this.tickerDuration = const Duration(milliseconds: 400),
@@ -419,6 +420,8 @@ class EditorConfig {
   /// Editor mask color base on pointerDown
   /// default: scaffoldBackgroundColor.withOpacity(pointerDown ? 0.4 : 0.8)
   final EditorMaskColorHandler? editorMaskColorHandler;
+
+  final ColorFilter? colorFilter;
 
   /// Hit test region of corner and line
   final double hitTestSize;

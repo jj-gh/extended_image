@@ -82,7 +82,7 @@ class ExtendedImageEditorState extends State<ExtendedImageEditor> {
   Widget build(BuildContext context) {
     assert(_editActionDetails != null && _editorConfig != null);
     final ExtendedImage extendedImage = widget.extendedImageState.imageWidget;
-    final Widget image = ExtendedRawImage(
+    Widget image = ExtendedRawImage(
       image: widget.extendedImageState.extendedImageInfo?.image,
       width: extendedImage.width,
       height: extendedImage.height,
@@ -100,6 +100,12 @@ class ExtendedImageEditorState extends State<ExtendedImageEditor> {
       filterQuality: extendedImage.filterQuality,
       editActionDetails: _editActionDetails,
     );
+
+    if (_editorConfig!.colorFilter != null)
+      image = ColorFiltered(
+        colorFilter: _editorConfig!.colorFilter!,
+        child: image,
+      );
 
     Widget result = GestureDetector(
         onScaleStart: _handleScaleStart,
